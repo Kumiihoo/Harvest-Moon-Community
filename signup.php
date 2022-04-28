@@ -1,3 +1,24 @@
+<?php
+    require "db.php";
+
+    $message = '';
+
+    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+        $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
+        $stmt = $conexion->prepare($sql);
+        $stmt ->bindParam(':email', $_POST['email']);
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $stmt ->bindParam(':password', $password);
+
+        if ($stmt->execute()){
+            $message = 'Has creado un usuario';
+        } else {
+            $message = 'No se ha podido crear el usuario';
+        }
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +33,26 @@
 </head>
 <body>
     <header></header>
+
+    <?php if (!empty ($message)): ?>
+        <p><?= $message?></p>
+    <?php endif; ?>
+
     <section>
         <div class="register-box">
             <img class="avatar" src="img/harvest-moon-back-to-nature-png-5.png" alt="pete icon">
             <h1>Registro a la Comunidad <br>de Harvest Moon ES</h1>
-            <form>
+            <form  action="signup.php" method="post">
                 <label>Email</label>
-                <input type="email" placeholder="pete@harvestmoon.es">
+                <input type="email" name="email" placeholder="pete@harvestmoon.es">
                 <label>Nombre de Usuario</label>
                 <input type="text" placeholder="Máximo 12 carácteres simples">
                 <label>Contraseña</label>
-                <input type="password" placeholder="Mínimo de un símbolo y un número entre X - Y carácteres">
+                <input type="password" name="password" placeholder="Mínimo de un símbolo y un número entre X - Y carácteres">
                 <label>Confirmación Contraseña</label>
                 <input type="password" placeholder="Escribe de nuevo la Contraseña">
                 <input type="submit" value="Confirmar">
-                <a href="login.html">¿Ya tienes una cuenta?</a>
+                <a href="login.php">¿Ya tienes una cuenta?</a>
             </form>
         </div>
     </section>
