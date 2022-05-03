@@ -13,7 +13,7 @@ CONSTRAINT uq_email UNIQUE(email),
 CONSTRAINT uq_username UNIQUE(username)  
 )ENGINE=InnoDb;
 
-INSERT INTO users VALUES(NULL, 'Admin', 'admin@admin.com', '1234', 'admin', null);
+INSERT INTO users VALUES(NULL, 'Admin', 'admin@admin.com', '$2y$04$qcEAcK8mA96mShZxsUPm6.T5i4UhkIkNWS2/GSv9vg5q277jqdq6.', 'admin', null);
 
 CREATE TABLE categories(
 id              int(255) auto_increment not null,

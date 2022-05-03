@@ -76,7 +76,8 @@ class Post{
 	}
 	
 	public function save(){
-		$sql = "INSERT INTO posts VALUES(NULL, {$this->getCategory_id()}, '{$this->getAuthor()}', '{$this->getTitle()}', '{$this->getContent()}', CURDATE(), '{$this->getPicture()}');";
+		$sql = "INSERT INTO posts VALUES(NULL, {$this->getCategory_id()}, {$this->getAuthor()}, '{$this->getTitle()}', '{$this->getContent()}', CURDATE(), '{$this->getPicture()}');";
+		error_log($sql);
 		$save = $this->db->query($sql);
 
 		$result = false;

@@ -36,11 +36,17 @@ class postsController
             $category = isset($_POST['category_id']) ? $_POST['category_id'] : false; //FIXME: PROBAR CON CATEGORY_NAME
             //$picture = isset($_POST['picture']) ? $_POST['picture'] : false;
 
+            $author_id = isset($_SESSION['identity']) ? $_SESSION['identity']->id : false;
+            if (! $author_id) {
+                // TODO some info & return
+            }
+
             if ($title && $content && $category) {
                 $post = new Post();
                 $post->setTitle($title);
                 $post->setContent($content);
                 $post->setCategory_id($category);
+                $post->setAuthor($author_id);
 
                 $save = $post->save();
                 if ($save) {

@@ -15,7 +15,7 @@
 
 		<label for="category_id">Categoría</label>
 		<?php $categories = Utils::showCategories(); ?>
-		<select name="category_name">
+		<select name="category_id">
 			<?php while ($cat = $categories->fetch_object()) : ?>
 				<option value="<?=$cat->id?>">
 					<?=$cat->category_name?>
