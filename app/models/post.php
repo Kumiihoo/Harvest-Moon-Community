@@ -94,7 +94,7 @@ class Post{
 	}
 
 	public function update() {
-		$sql = "UPDATE posts SET category_id={$this->getCategory_id()}, author = {$this->getAuthor()}, title = {$this->getTitle()}, content = {$this->getContent()} WHERE id = {$this->getId()}";
+		$sql = "UPDATE posts SET category_id={$this->getCategory_id()}, author = '{$this->getAuthor()}', title = '{$this->getTitle()}', content = '{$this->getContent()}' WHERE id = {$this->getId()}";
 		$succ = $this->db->query($sql); // 返回 bool
 		
 		return $succ;

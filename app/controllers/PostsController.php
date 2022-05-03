@@ -73,7 +73,7 @@ class postsController
         // POST to submit
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $post = $this->fillPost();
-            $post_id = $this->getId();
+            $post_id = $post->getId();
             if (! $post) { // TODO handle error
 
             }
