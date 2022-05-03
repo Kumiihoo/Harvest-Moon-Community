@@ -75,9 +75,15 @@ class Post{
 		return $posts;
 	}
 	
+	public function getOneById($id) {
+		$sql = "SELECT * FROM posts WHERE id = {$id}";
+		$post = $this->db->query($sql);
+		return $post;
+	}
+
 	public function save(){
 		$sql = "INSERT INTO posts VALUES(NULL, {$this->getCategory_id()}, {$this->getAuthor()}, '{$this->getTitle()}', '{$this->getContent()}', CURDATE(), '{$this->getPicture()}');";
-		error_log($sql);
+		// error_log($sql);
 		$save = $this->db->query($sql);
 
 		$result = false;
@@ -85,5 +91,18 @@ class Post{
 			$result = true;
 		}
 		return $result;
+	}
+
+	public function update() {
+		$sql = "UPDATE posts SET category_id={$this->getCategory_id()}, author = {$this->getAuthor()}, title = {$this->getTitle()}, content = {$this->getContent()} WHERE id = {$this->getId()}";
+		$succ = $this->db->query($sql); // 返回 bool
+		
+		return $succ;
+	}
+
+	public function delete($id) {
+		$sql = "DELETE FROM posts WHERE id = {$id} LIMIT 1";
+		$succ = $this->db->query($sql);
+		return $succ;
 	}
 }

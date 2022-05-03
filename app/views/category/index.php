@@ -13,6 +13,10 @@
 		<tr>
 			<td><?=$cat->id;?></td>
 			<td><?=$cat->category_name;?></td>
+			<td>
+				<a href="<?=base_url?>category/editar&id=<?=$cat->id?>" class="button button-gestion">Editar</a>
+				<a href="<?=base_url?>category/eliminar&id=<?=$cat->id?>" class="button button-gestion button-red">Eliminar</a>
+			</td>
 		</tr>
 	<?php endwhile; ?>
 </table>

@@ -33,8 +33,8 @@
 			<td><?=$pos->title;?></td>
 			<td><?=$pos->content;?></td>
 			<td>
-				<a href="<?=base_url?>post/editar&id=<?=$pos->id?>" class="button button-gestion">Editar</a>
-				<a href="<?=base_url?>post/eliminar&id=<?=$pos->id?>" class="button button-gestion button-red">Eliminar</a>
+				<a href="<?=base_url?>posts/editar&id=<?=$pos->id?>" class="button button-gestion">Editar</a>
+				<a href="<?=base_url?>posts/eliminar&id=<?=$pos->id?>" class="button button-gestion button-red">Eliminar</a>
 			</td>
 		</tr>
 	<?php endwhile; ?>

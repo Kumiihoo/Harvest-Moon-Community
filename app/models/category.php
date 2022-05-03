@@ -46,5 +46,22 @@ class Category{
 		return $result;
 	}
 	
-	
+	public function update() {
+		$sql = "UPDATE categories SET category_name = '{$this->getCategory_name()}' WHERE id = {$this->getId()}";
+		$succ = $this->db->query($sql); // 返回 bool
+		
+		return $succ;
+	}
+
+	public function getOneById($id) {
+		$sql = "SELECT * FROM categories WHERE id = {$id}";
+		$post = $this->db->query($sql);
+		return $post;
+	}
+
+	public function delete($id) {
+		$sql = "DELETE FROM categories WHERE id = {$id} LIMIT 1";
+		$succ = $this->db->query($sql);
+		return $succ;
+	}
 }
