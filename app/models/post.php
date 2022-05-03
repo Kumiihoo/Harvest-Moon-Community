@@ -74,6 +74,25 @@ class Post{
 		$posts = $this->db->query("SELECT * FROM posts ORDER BY id DESC");
 		return $posts;
 	}
+
+	public function getAllCategory(){
+		$sql = "SELECT p.*, c.nombre AS 'catnombre' FROM posts p "
+				. "INNER JOIN categories c ON c.id = p.category_id "
+				. "WHERE p.categoria_id = {$this->getCategory_id()} "
+				. "ORDER BY id DESC";
+		$productos = $this->db->query($sql);
+		return $productos;
+	}
+	
+	public function getRandom($limit){
+		$productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit");
+		return $productos;
+	}
+	
+	public function getOne(){
+		$producto = $this->db->query("SELECT * FROM productos WHERE id = {$this->getId()}");
+		return $producto->fetch_object();
+	}
 	
 	public function save(){
 		$sql = "INSERT INTO posts VALUES(NULL, {$this->getCategory_id()}, {$this->getAuthor()}, '{$this->getTitle()}', '{$this->getContent()}', CURDATE(), '{$this->getPicture()}');";
@@ -82,6 +101,36 @@ class Post{
 
 		$result = false;
 		if($save){
+			$result = true;
+		}
+		return $result;
+	}
+
+	public function edit(){
+		$sql = "UPDATE posts SET nombre='{$this->getTitle()}', descripcion='{$this->getContent()}', category_id={$this->getCategory_id()}  ";
+		
+		if($this->getPicture() != null){
+			$sql .= ", imagen='{$this->getPicture()}'";
+		}
+		
+		$sql .= " WHERE id={$this->id};";
+		
+		
+		$save = $this->db->query($sql);
+		
+		$result = false;
+		if($save){
+			$result = true;
+		}
+		return $result;
+	}
+	
+	public function erase(){
+		$sql = "DELETE FROM posts WHERE id={$this->id}";
+		$erase = $this->db->query($sql);
+		
+		$result = false;
+		if($erase){
 			$result = true;
 		}
 		return $result;
