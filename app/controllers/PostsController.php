@@ -81,6 +81,7 @@ class postsController
             if (! $succ) {// TODO handle error
 
             }
+            header('Location:'.base_url.'posts/manage');
         }
 
         $result = (new Post())->getOneById($post_id);
@@ -93,7 +94,7 @@ class postsController
         $id = isset($_POST['id']) ? $_POST['id'] : 0;
         $title = isset($_POST['title']) ? $_POST['title'] : false;
         $content = isset($_POST['content']) ? $_POST['content'] : false;
-        $category = isset($_POST['category_id']) ? $_POST['category_id'] : false; //FIXME: PROBAR CON CATEGORY_NAME
+        $category = isset($_POST['category_id']) ? $_POST['category_id'] : false;
         $author_id = isset($_SESSION['identity']) ? $_SESSION['identity']->id : false;
         if (! $author_id) {
             // TODO some info & return
@@ -125,6 +126,11 @@ class postsController
             throw new Exception("", 2);
         }
 
-        return ;
+
+
+
+
+        header('Location:'.base_url.'posts/manage');
+        return;
     }
 }

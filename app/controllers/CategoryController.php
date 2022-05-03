@@ -64,6 +64,7 @@ class categoryController{
             if (! $succ) {// TODO handle error
 
             }
+            header('Location:'.base_url.'category/index');
         }
 
         $result = (new Category())->getOneById($cat_id);
