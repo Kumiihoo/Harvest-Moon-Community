@@ -80,4 +80,36 @@ class usersController
 
         header("Location:" . base_url);
     }
+
+    public function profile() {
+        $uid = isset($_SESSION['identity']) ? $_SESSION['identity']->id : false;
+        if (! $uid) {
+            // TODO some info & return
+        }
+
+        $profile = (new User())->getUserById($uid);
+
+        require_once 'views/user/profile.php';
+    }
+
+    public function updateprofile() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id = isset($_POST['id']) ? $_POST['id'] : 0;
+            $username = isset($_POST['username']) ? $_POST['username'] : false;
+            $email = isset($_POST['email']) ? $_POST['email'] : false;
+
+            $user = new User();
+            $user->setId($id);
+            $user->setUsername($username);
+            $user->setEmail($email);
+
+            $result = $user->update();
+            if (! $result) {
+                // error
+                header("Location:" . base_url); 
+            }
+        }
+
+        header("Location:" . base_url); 
+    }
 }

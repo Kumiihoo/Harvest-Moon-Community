@@ -85,7 +85,7 @@ class postsController
 
         $result = (new Post())->getOneById($post_id);
         $pos = $result->fetch_array();
-        error_log("{$result->num_rows}, {$pos['title']}");
+        // error_log("{$result->num_rows}, {$pos['title']}");
         require_once 'views/posts/editar.php';
     }
 

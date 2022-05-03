@@ -101,4 +101,18 @@ class User
 		
 		return $result;
 	}
+
+    public function getUserById($uid) {
+        $sql = "SELECT * FROM users WHERE id = {$uid}";
+        // error_log("{$sql}");
+        $result = $this->db->query($sql);
+        return $result->fetch_array();
+    }
+
+    public function update() {
+        $sql = "UPDATE users SET username = '{$this->getUsername()}', email = '{$this->getEmail()}' WHERE id = {$this->getId()}";
+        error_log("{$sql}");
+        $result = $this->db->query($sql);
+        return $result;
+    }
 }

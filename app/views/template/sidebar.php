@@ -23,6 +23,7 @@
 
 							<?php if (isset($_SESSION['identity'])) : ?>
 								<li><a href="<?= base_url ?>pedido/mis_pedidos">Mis pedidos</a></li>
+								<li><a href="<?= base_url ?>users/profile">Edit Profile</a></li>
 								<li><a href="<?= base_url ?>users/logout">Cerrar sesión</a></li>
 							<?php else : ?>
 								<li><a href="<?= base_url ?>users/signup">Registrate aquí</a></li>
