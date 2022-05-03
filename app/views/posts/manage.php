@@ -26,7 +26,7 @@
 		<th>Contenido</th>
 		<th>ACCIONES</th>
 	</tr>
-	<?php while($pos = $posts->fetch_object()): ?>
+	<?php while($pos = $post->fetch_object()): ?>
 		<tr>
 			<td><?=$pos->id;?></td>
 			<td><?=$pos->category_id;?></td>

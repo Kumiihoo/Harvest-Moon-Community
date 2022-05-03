@@ -74,6 +74,11 @@ class Post{
 		$posts = $this->db->query("SELECT * FROM posts ORDER BY id DESC");
 		return $posts;
 	}
+
+	public function getIndex($limit){
+		$post = $this->db->query("SELECT * FROM posts ORDER BY RAND() LIMIT $limit");
+		return $post;
+	}
 	
 	public function getOneById($id) {
 		$sql = "SELECT * FROM posts WHERE id = {$id}";

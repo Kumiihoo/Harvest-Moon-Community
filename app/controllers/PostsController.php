@@ -6,7 +6,8 @@ class postsController
 
     public function index()
     {
-        //se muestra la vista
+        $post = new Post();
+		$post = $post->getIndex(1); //limite producto
 
         require_once 'views/posts/latest.php';
     }
@@ -16,7 +17,8 @@ class postsController
         Utils::isAdmin();
 
         $post = new Post(); //TODO CAMBIAR NOMBRE OBJETO
-        $posts = $post->getAll();
+        $post = $post->getAll();
+
 
         require_once 'views/posts/manage.php';
     }
