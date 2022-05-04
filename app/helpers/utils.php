@@ -13,10 +13,12 @@ class Utils{
 
 	public static function isAdmin(){
 		if(!isset($_SESSION['admin'])){
-			header("Location:".base_url);
+			// header("Location:".base_url);
 		}else{
 			return true;
 		}
+
+		return false;
 	}
 
 	public static function showCategories(){
