@@ -104,7 +104,6 @@ class categoryController{
     }
 
     public function filter() {
-        Utils::isAdmin();
 
         $queries = array();
         parse_str($_SERVER['REQUEST_URI'], $queries);
