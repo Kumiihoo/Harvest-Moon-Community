@@ -28,7 +28,8 @@
 	</tr>
 	<?php while($pos = $post->fetch_object()): ?>
 		<tr>
-			<td><?=$pos->id;?></td>
+			<!-- <td><?=$pos->id;?></td> -->
+			<td><a href="<?= base_url ?>posts/detail&id=<?= $pos->id ?>"><?=$pos->id?></a></td>
 			<td><?=$pos->category_id;?></td>
 			<td><?=$pos->title;?></td>
 			<td><?=$pos->content;?></td>

@@ -164,11 +164,11 @@ class postsController
         }
 
         $result = (new Post())->getOneById($post_id);
-        $pos = $result->fetch_object();
+        $post = $result->fetch_object();
         // the object returned by fetch_object, get properties with field name same in table
         // error_log("id {$pos->id}, name {$pos->title}");
 
-		require_once 'views/post/detail.php';
+		require_once 'views/posts/detail.php';
         // maybe support comment
     }
 }
