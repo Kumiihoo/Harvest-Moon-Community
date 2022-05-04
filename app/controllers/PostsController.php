@@ -151,4 +151,24 @@ class postsController
         header('Location:'.base_url.'posts/manage');
         return;
     }
+
+    public function ver() {
+        Utils::isAdmin();
+        // error_log("get {$_GET}");
+        $queries = array();
+        parse_str($_SERVER['REQUEST_URI'], $queries);
+        
+        $post_id = isset($queries["id"]) ? $queries["id"] : 0;
+        if (! $post_id) {
+            throw new Exception("Error Processing Request", 1);
+        }
+
+        $result = (new Post())->getOneById($post_id);
+        $pos = $result->fetch_object();
+        // the object returned by fetch_object, get properties with field name same in table
+        // error_log("id {$pos->id}, name {$pos->title}");
+
+        // TODO finish the detail page
+        // maybe support comment
+    }
 }
