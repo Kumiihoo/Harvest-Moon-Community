@@ -54,21 +54,10 @@ class postsController
                 $post->setCategory_id($category);
                 $post->setAuthor($author_id);
 
-                if(isset($_FILES['picture'])){
-					$file = $_FILES['picture'];
-					$filename = $file['name'];
-					$mimetype = $file['type'];
-
-					if($mimetype == "image/jpg" || $mimetype == 'image/jpeg' || $mimetype == 'image/png' || $mimetype == 'image/gif'){
-
-						if(!is_dir('uploads/images')){
-							mkdir('uploads/images', 0777, true);
-						}
-
-						$post->setPicture($filename);
-						move_uploaded_file($file['tmp_name'], 'uploads/images/'.$filename);
-					}
-				}
+                $filename = $this->handleUploadPicture();
+                if ($filename) {
+                    $post->setPicture($filename);
+                }
 
                 $save = $post->save();
                 if ($save) {
@@ -99,7 +88,7 @@ class postsController
             if (! $post) { // TODO handle error
 
             }
-            $succ = $post->update();
+            $succ = $post->updatePostContent();
             if (! $succ) {// TODO handle error
 
             }
@@ -112,6 +101,26 @@ class postsController
         require_once 'views/posts/editar.php';
     }
 
+    private function handleUploadPicture() {
+        if(isset($_FILES['picture'])){
+            $file = $_FILES['picture'];
+            $filename = $file['name'];
+            $mimetype = $file['type'];
+
+            if($mimetype == "image/jpg" || $mimetype == 'image/jpeg' || $mimetype == 'image/png' || $mimetype == 'image/gif'){
+
+                if(!is_dir('uploads/images')){
+                    mkdir('uploads/images', 0777, true);
+                }
+                move_uploaded_file($file['tmp_name'], 'uploads/images/'.$filename);
+            }
+
+            return $filename;
+        }
+
+        return null;
+    }
+
     private function fillPost() {
         $id = isset($_POST['id']) ? $_POST['id'] : 0;
         $title = isset($_POST['title']) ? $_POST['title'] : false;
@@ -121,6 +130,7 @@ class postsController
         if (! $author_id) {
             // TODO some info & return
         }
+        $filename = $this->handleUploadPicture();
 
         $post = new Post();
         $post->setId($id);
@@ -128,6 +138,9 @@ class postsController
         $post->setContent($content);
         $post->setCategory_id($category);
         $post->setAuthor($author_id);
+        if ($filename) {
+            $post->setPicture($filename);
+        }
 
         return $post;
     }
@@ -141,9 +154,12 @@ class postsController
         $id = isset($queries["id"]) ? $queries["id"] : 0;
         if (! $id) {
             throw new Exception("Error Processing Request", 1);
-            
         }
-        $succ = (new Post())->delete($id);
+
+        $uid = Utils::getUserId();
+
+        $post = new Post();
+        $succ = $post->delete($id, $uid);
         if (! $succ) {
             throw new Exception("", 2);
         }

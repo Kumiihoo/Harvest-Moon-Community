@@ -1,4 +1,5 @@
 <?php
+require_once 'user.php';
 
 class Post{
 	private $id;
@@ -112,8 +113,42 @@ class Post{
 		return $succ;
 	}
 
-	public function delete($id) {
-		$sql = "DELETE FROM posts WHERE id = {$id} LIMIT 1";
+	public function updatePostContent() {
+		$user = (new User())->getUserById($this->getAuthor());
+
+		if (!$user) {
+			return false;
+		}
+
+		$sql = "UPDATE posts SET category_id={$this->getCategory_id()}, title = '{$this->getTitle()}', content = '{$this->getContent()}'";
+		if ($this->getPicture()) {
+			$sql = $sql . ", picture = '{$this->getPicture()}'";
+		}
+
+		if ($user['role'] == 'admin') {
+			$sql = $sql . " WHERE id = {$this->getId()} LIMIT 1";
+		} else {
+			$sql = $sql . " WHERE id = {$this->getId()} AND author = {$this->getAuthor()} LIMIT 1";
+		}
+
+		$succ = $this->db->query($sql); // 返回 bool
+		
+		return $succ;
+	}
+
+	public function delete($id, $authorId) {
+		$user = (new User())->getUserById($authorId);
+
+		if (!$user) {
+			return false;
+		}
+
+		if ($user['role'] == 'admin') {
+			$sql = "DELETE FROM posts WHERE id = {$id} LIMIT 1";
+		} else {
+			$sql = "DELETE FROM posts WHERE id = {$id} AND author = {$authorId} LIMIT 1";
+		}
+
 		$succ = $this->db->query($sql);
 		return $succ;
 	}

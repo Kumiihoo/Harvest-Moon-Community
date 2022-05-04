@@ -35,5 +35,13 @@ class Utils{
 		$category = $category->getOne();
 		return $category;
 	}
+
+	public static function getUserId() {
+		if (isset($_SESSION['identity']) && $_SESSION['identity']->id) {
+			return $_SESSION['identity']->id;
+		}
+
+		return false;
+	}
 }
 
