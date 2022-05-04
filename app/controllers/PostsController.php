@@ -152,7 +152,7 @@ class postsController
         return;
     }
 
-    public function ver() {
+    public function detail() {
         Utils::isAdmin();
         // error_log("get {$_GET}");
         $queries = array();
@@ -168,7 +168,7 @@ class postsController
         // the object returned by fetch_object, get properties with field name same in table
         // error_log("id {$pos->id}, name {$pos->title}");
 
-        // TODO finish the detail page
+		require_once 'views/post/detail.php';
         // maybe support comment
     }
 }

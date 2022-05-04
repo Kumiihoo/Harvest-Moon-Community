@@ -2,7 +2,7 @@
 
 <?php while ($post = $posts->fetch_array()) : ?>
 	<div class="post">
-		<a href="<?= base_url ?>post/ver&id=<?= $post['id'] ?>">
+		<a href="<?= base_url ?>post/detail&id=<?= $post['id'] ?>">
 			<?php if ($post['picture'] != null) : ?>
 				<img src="<?= base_url ?>uploads/images/<?= $post['picture'] ?>" />
 			<?php else : ?>
@@ -11,6 +11,6 @@
 			<h2><?= $post['title'] ?></h2>
 		</a>
 		<p><?= $post['content'] ?></p>
-		<a href="<?= base_url ?>carrito/add&id=<?= $post['id'] ?>" class="button">Comprar</a>
+		<a href="<?= base_url ?>post/detail&id=<?= $post['id'] ?>" class="button">Leer Más</a>
 	</div>
 <?php endwhile; ?>
