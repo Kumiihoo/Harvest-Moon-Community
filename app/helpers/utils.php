@@ -25,5 +25,12 @@ class Utils{
 		$categories = $category->getAll();
 		return $categories;
 	}
+
+	public static function showCategory(){
+		require_once 'models/category.php';
+		$category = new Category();
+		$category = $category->getOne();
+		return $category;
+	}
 }
 
