@@ -10,8 +10,11 @@
 		</div>
 		<div class="data">
 			<p class="content"><?= $post->content ?></p>
-			<p class="date"><?= $post->date ?>$</p>
-			<a href="<?=base_url?>carrito/add&id=<?=$post->id?>" class="button">Volver</a>
+			<p class="date"><?= $post->date ?></p>
+			<?php $categories = Utils::showCategory($id); ?>
+			<?php if($cat = $categories->fetch_object()): ?>
+			<a href="<?=base_url?>category/filter&id=<?=$cat->id?>" class="button">Volver a <?=$cat->category_name?></a>
+			<?php endif; ?>
 		</div>
 	</div>
 <?php else: ?>
