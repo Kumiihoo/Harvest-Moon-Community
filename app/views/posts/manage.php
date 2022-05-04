@@ -22,16 +22,20 @@
 	<tr>
 		<th>ID</th>
 		<th>Categoría</th>
+		<th>Author</th>
 		<th>Título</th>
 		<th>Contenido</th>
+		<th>Date</th>
 		<th>ACCIONES</th>
 	</tr>
 	<?php while($pos = $post->fetch_object()): ?>
 		<tr>
 			<!-- <td><?=$pos->id;?></td> -->
 			<td><a href="<?= base_url ?>posts/detail&id=<?= $pos->id ?>"><?=$pos->id?></a></td>
-			<td><?=$pos->category_id;?></td>
+			<td><?=$cat_array[$pos->category_id];?></td>
+			<td><?=$user_array[$pos->author];?></td>
 			<td><?=$pos->title;?></td>
+			<td><?=$pos->date;?></td>
 			<td><?=$pos->content;?></td>
 			<td>
 				<a href="<?=base_url?>posts/editar&id=<?=$pos->id?>" class="button button-gestion">Editar</a>

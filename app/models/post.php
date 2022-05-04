@@ -159,7 +159,7 @@ class Post{
 			$offset = $page * $limit;
 		}
 
-		$sql = "SELECT * FROM posts WHERE category_id = {$category_id} LIMIT {$limit} OFFSET {$offset}";
+		$sql = "SELECT * FROM posts WHERE category_id = {$category_id} ORDER BY id DESC LIMIT {$limit} OFFSET {$offset}";
 
 		error_log("{$sql}");
 		$posts = $this->db->query($sql);

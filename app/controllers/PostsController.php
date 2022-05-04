@@ -24,6 +24,18 @@ class postsController
             $post = $post->getPostsByUid($author_id);
         }
 
+        $cat_array = array();
+		$categories = (new Category())->getAll();
+        while ($cat = $categories->fetch_object()) {
+            $cat_array[$cat->id] = $cat->category_name;
+        }
+
+        $user_array = array();
+        $users = (new User())->getAll();
+        while ($user = $users->fetch_object()) {
+            $user_array[$user->id] = $user->username;
+        } 
+
         require_once 'views/posts/manage.php';
     }
 

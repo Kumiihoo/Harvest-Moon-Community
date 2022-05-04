@@ -111,7 +111,13 @@ class User
 
     public function update() {
         $sql = "UPDATE users SET username = '{$this->getUsername()}', email = '{$this->getEmail()}' WHERE id = {$this->getId()}";
-        error_log("{$sql}");
+        // error_log("{$sql}");
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    public function getAll() {
+        $sql = "SELECT * FROM users";
         $result = $this->db->query($sql);
         return $result;
     }
