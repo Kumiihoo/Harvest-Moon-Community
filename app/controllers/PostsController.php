@@ -17,8 +17,12 @@ class postsController
         Utils::isAdmin();
 
         $post = new Post(); //TODO CAMBIAR NOMBRE OBJETO
-        $post = $post->getAll();
-
+        if (isset($_SESSION['admin'])) {
+            $post = $post->getAll();
+        } else if (isset($_SESSION['identity']) && $_SESSION['identity']->id) {
+            $author_id = $_SESSION['identity']->id;
+            $post = $post->getPostsByUid($author_id);
+        }
 
         require_once 'views/posts/manage.php';
     }

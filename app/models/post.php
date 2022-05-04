@@ -75,6 +75,13 @@ class Post{
 		return $posts;
 	}
 
+	public function getPostsByUid($uid){
+		$sql = "SELECT * FROM posts WHERE `author` = {$uid} ORDER BY id DESC";
+		// error_log("{$sql}");
+		$posts = $this->db->query($sql);
+		return $posts;
+	}
+
 	public function getIndex($limit){
 		$post = $this->db->query("SELECT * FROM posts ORDER BY RAND() LIMIT $limit");
 		return $post;
