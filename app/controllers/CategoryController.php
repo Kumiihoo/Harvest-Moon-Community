@@ -1,5 +1,6 @@
 <?php
 require_once 'models/category.php';
+require_once 'models/post.php';
 //require_once 'models/post.php';
 
 class categoryController{
@@ -100,5 +101,27 @@ class categoryController{
         }
 
 		header("Location:".base_url."category/index");
+    }
+
+    public function filter() {
+        Utils::isAdmin();
+
+        $queries = array();
+        parse_str($_SERVER['REQUEST_URI'], $queries);
+        
+        $id = isset($queries["id"]) ? $queries["id"] : 0;
+
+        // query category
+        $cat_result = (new Category())->getOneById($id);
+        $category = $cat_result->fetch_array();
+
+        // prepare to query posts
+        $page = 0;
+        $limit = 10;
+
+        error_log("id {$id} page {$page}");
+        $posts = (new Post())->queryByCategory($id, $page, $limit);
+
+        require_once 'views/category/filter.php';
     }
 }

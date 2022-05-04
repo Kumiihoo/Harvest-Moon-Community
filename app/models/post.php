@@ -110,4 +110,17 @@ class Post{
 		$succ = $this->db->query($sql);
 		return $succ;
 	}
+
+	public function queryByCategory($category_id, $page, $limit) {
+		$offset = 0;
+		if ($page && $limit) {
+			$offset = $page * $limit;
+		}
+
+		$sql = "SELECT * FROM posts WHERE category_id = {$category_id} LIMIT {$limit} OFFSET {$offset}";
+
+		error_log("{$sql}");
+		$posts = $this->db->query($sql);
+		return $posts;
+	}
 }
