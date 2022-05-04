@@ -26,9 +26,10 @@ class Utils{
 		return $categories;
 	}
 
-	public static function showCategory(){
+	public static function showCategory($id){
 		require_once 'models/category.php';
 		$category = new Category();
+		$category->setId($id);
 		$category = $category->getOne();
 		return $category;
 	}

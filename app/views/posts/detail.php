@@ -11,9 +11,9 @@
 		<div class="data">
 			<p class="content"><?= $post->content ?></p>
 			<p class="date"><?= $post->date ?></p>
-			<?php $categories = Utils::showCategory($id); ?>
-			<?php if($cat = $categories->fetch_object()): ?>
-			<a href="<?=base_url?>category/filter&id=<?=$cat->id?>" class="button">Volver a <?=$cat->category_name?></a>
+			<?php $category = Utils::showCategory($post->category_id); ?>
+			<?php if(isset($category)): ?>
+			<a href="<?=base_url?>category/filter&id=<?=$category->id?>" class="button">Volver a <?=$category->category_name?></a>
 			<?php endif; ?>
 		</div>
 	</div>

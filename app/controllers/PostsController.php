@@ -158,7 +158,7 @@ class postsController
 
     public function detail() {
         Utils::isAdmin();
-        // error_log("get {$_GET}");
+        
         $queries = array();
         parse_str($_SERVER['REQUEST_URI'], $queries);
         
