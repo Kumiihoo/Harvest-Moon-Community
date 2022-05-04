@@ -6,7 +6,7 @@ require_once 'models/post.php';
 class categoryController{
 	
 	public function index(){
-		Utils::isAdmin();
+		Utils::isAdmin(true);
 		$category = new Category();
 		$categories = $category->getAll();
 		
