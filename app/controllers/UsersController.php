@@ -105,7 +105,6 @@ class usersController
 
             $result = $user->update();
             if (!$result) {
-                // error
                 header("Location:" . base_url);
             }
 

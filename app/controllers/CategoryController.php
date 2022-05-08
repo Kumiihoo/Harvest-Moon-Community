@@ -1,7 +1,6 @@
 <?php
 require_once 'models/category.php';
 require_once 'models/post.php';
-//require_once 'models/post.php';
 
 class categoryController
 {
@@ -24,11 +23,6 @@ class categoryController
             $category = new Category();
             $category->setId($id);
             $category = $category->getOne();
-
-            // Conseguir productos;
-            //$post = new Post();
-            //$post->setCategoria_id($id);
-            //$posts = $post->getAllCategory();
         }
 
         require_once 'views/category/readmore.php';
@@ -60,7 +54,7 @@ class categoryController
         parse_str($_SERVER['REQUEST_URI'], $queries);
 
         $cat_id = isset($queries['id']) ? $queries['id'] : 0;
-        // POST to submit
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $category = $this->fillCategory();
             $cat_id = $category->getId();
@@ -92,7 +86,7 @@ class categoryController
     public function eliminar()
     {
         Utils::isAdmin();
-        // error_log("get {$_GET}");
+
         $queries = array();
         parse_str($_SERVER['REQUEST_URI'], $queries);
 
@@ -116,11 +110,8 @@ class categoryController
 
         $id = isset($queries["id"]) ? $queries["id"] : 0;
 
-        // query category
         $cat_result = (new Category())->getOneById($id);
         $category = $cat_result->fetch_array();
-
-        // prepare to query posts
         $page = 0;
         $limit = 10;
 

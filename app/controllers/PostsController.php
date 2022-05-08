@@ -7,7 +7,7 @@ class postsController
     public function index()
     {
         $post = new Post();
-        $posts = $post->getIndex(4); //limite producto
+        $posts = $post->getIndex(4); //limite de posts que se mostrarán
 
         require_once 'views/posts/latest.php';
     }
@@ -52,7 +52,6 @@ class postsController
             $title = isset($_POST['title']) ? $_POST['title'] : false;
             $content = isset($_POST['content']) ? $_POST['content'] : false;
             $category = isset($_POST['category_id']) ? $_POST['category_id'] : false;
-            //$picture = isset($_POST['picture']) ? $_POST['picture'] : false;
 
             $author_id = isset($_SESSION['identity']) ? $_SESSION['identity']->id : false;
             if (!$author_id) {
@@ -93,7 +92,7 @@ class postsController
         parse_str($_SERVER['REQUEST_URI'], $queries);
 
         $post_id = isset($queries['id']) ? $queries['id'] : 0;
-        // POST to submit
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $post = $this->fillPost();
             $post_id = $post->getId();
@@ -107,7 +106,7 @@ class postsController
 
         $result = (new Post())->getOneById($post_id);
         $pos = $result->fetch_array();
-        // error_log("{$result->num_rows}, {$pos['title']}");
+
         require_once 'views/posts/editar.php';
     }
 
@@ -159,7 +158,7 @@ class postsController
     public function eliminar()
     {
         Utils::isAdmin();
-        // error_log("get {$_GET}");
+
         $queries = array();
         parse_str($_SERVER['REQUEST_URI'], $queries);
 
@@ -175,10 +174,6 @@ class postsController
         if (!$succ) {
             throw new Exception("", 2);
         }
-
-
-
-
 
         header('Location:' . base_url . 'posts/manage');
         return;
@@ -198,10 +193,7 @@ class postsController
 
         $result = (new Post())->getOneById($post_id);
         $post = $result->fetch_object();
-        // the object returned by fetch_object, get properties with field name same in table
-        // error_log("id {$pos->id}, name {$pos->title}");
 
         require_once 'views/posts/detail.php';
-        // maybe support comment
     }
 }

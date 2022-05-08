@@ -3,7 +3,7 @@
 * {
   padding: 0px;
   margin: 0px;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: "Libre Franklin", sans-serif;
 }
 
 body {
@@ -178,7 +178,7 @@ td {
   margin-bottom: 5px;
 }
 
-/*FORMULARIOS*/
+/*FORMS*/
 .form_container {
   width: 50%;
 }

@@ -13,7 +13,7 @@
 
 <body>
 	<div id="container">
-		<!-- CABECERA -->
+
 		<header id="header">
 			<div id="logo">
 				<img src="/Harvest-Moon-Community/public/img/HarvestMoonSNES.webp" alt="Harvest Moon Logo" />
@@ -23,7 +23,7 @@
 			</div>
 		</header>
 
-		<!-- MENU -->
+
 		<?php $categories = Utils::showCategories(); ?>
 		<nav id="menu">
 			<ul>
