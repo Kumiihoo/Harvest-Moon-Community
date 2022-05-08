@@ -18,7 +18,6 @@ class usersController
     public function save()
     {
         if (isset($_POST)) {
-            //TODO HACER VALIDACIÓN ESTRUCTURAL
             $username = isset($_POST['username']) ? $_POST['username'] : false;
             $email = isset($_POST['email']) ? $_POST['email'] : false;
             $password = isset($_POST['password']) ? $_POST['password'] : false;
@@ -62,7 +61,7 @@ class usersController
                     $_SESSION['admin'] = true;
                 }
             } else {
-                $_SESSION['error_login'] = 'Identificación fallida !!'; //TODO CAMBIAR MENSAJE
+                $_SESSION['error_login'] = 'Identificación fallida !!';
             }
         }
         header("Location:" . base_url);
@@ -81,10 +80,10 @@ class usersController
         header("Location:" . base_url);
     }
 
-    public function profile() {
+    public function profile()
+    {
         $uid = isset($_SESSION['identity']) ? $_SESSION['identity']->id : false;
-        if (! $uid) {
-            // TODO some info & return
+        if (!$uid) {
         }
 
         $profile = (new User())->getUserById($uid);
@@ -92,7 +91,8 @@ class usersController
         require_once 'views/user/profile.php';
     }
 
-    public function updateprofile() {
+    public function updateprofile()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = isset($_POST['id']) ? $_POST['id'] : 0;
             $username = isset($_POST['username']) ? $_POST['username'] : false;
@@ -104,20 +104,20 @@ class usersController
             $user->setEmail($email);
 
             $result = $user->update();
-            if (! $result) {
+            if (!$result) {
                 // error
-                header("Location:" . base_url); 
+                header("Location:" . base_url);
             }
 
             if (isset($_SESSION['identity'])) {
                 unset($_SESSION['identity']);
             }
-    
+
             if (isset($_SESSION['admin'])) {
                 unset($_SESSION['admin']);
             }
         }
 
-        header("Location:" . base_url); 
+        header("Location:" . base_url);
     }
 }
