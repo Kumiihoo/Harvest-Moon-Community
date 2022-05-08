@@ -329,12 +329,6 @@ button {
   margin-bottom: 10px;
 }
 
-.img_carrito {
-  height: 80px;
-  display: block;
-  margin: 10px auto;
-}
-
 .posts h2 {
   font-size: xx-large;
   margin-bottom: 10px;
@@ -344,42 +338,6 @@ button {
   font-weight: bold;
   color: #555;
   margin-bottom: 10px;
-}
-
-#detail-product {
-  width: 100%;
-}
-
-#detail-product .image {
-  display: block;
-  width: 47%;
-  float: left;
-}
-
-#detail-product img {
-  display: block;
-  width: 100%;
-  float: left;
-}
-
-#detail-product .data {
-  width: 50%;
-  float: right;
-}
-
-#detail-product .description {
-  margin-bottom: 20px;
-}
-
-#detail-product .price {
-  margin-bottom: 10px;
-  font-size: 20px;
-  color: #444;
-}
-
-#detail-product .button {
-  width: 200px;
-  text-align: center;
 }
 
 /*FOOTER*/
