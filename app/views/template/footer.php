@@ -2,7 +2,7 @@
 
 <!-- PIE DE PÁGINA -->
 <footer id="footer">
-    <p>Desarrollado por Víctor Robles WEB &copy; <?= date('Y') ?></p>
+    <i class="fa-solid fa-code"></i> with <i class="fa-solid fa-heart"></i> by Mario Medina &copy; <?= date('Y') ?></p>
 </footer>
 </div>
 </body>

@@ -5,7 +5,7 @@
 			<?php if ($post->picture != null): ?>
 				<img src="<?= base_url ?>uploads/images/<?= $post->picture ?>" />
 			<?php else: ?>
-				<img src="<?= base_url ?>assets/img/camiseta.png" />
+				<img src="<?= base_url ?>../public/img/sustituto.png" />
 			<?php endif; ?>
 		</div>
 		<div class="data">

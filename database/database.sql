@@ -24,7 +24,7 @@ CONSTRAINT uq_category_name UNIQUE(category_name)
 
 INSERT INTO categories VALUES(null, 'Noticias');
 INSERT INTO categories VALUES(null, 'Guías');
-INSERT INTO categories VALUES(null, 'Foro');
+INSERT INTO categories VALUES(null, 'Fandom');
 INSERT INTO categories VALUES(null, 'Tienda');
 
 CREATE TABLE posts(

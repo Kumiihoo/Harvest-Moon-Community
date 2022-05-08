@@ -1,4 +1,4 @@
-<h1>Gestión de productos</h1>
+<h1>Panel de Administración de Posts</h1>
 
 <a href="<?=base_url?>posts/create" class="button button-small">
 	Nueva Entrada
@@ -22,10 +22,10 @@
 	<tr>
 		<th>ID</th>
 		<th>Categoría</th>
-		<th>Author</th>
+		<th>Autor</th>
 		<th>Título</th>
-		<th>Contenido</th>
-		<th>Date</th>
+		<th>Fecha de Publicación</th>
+		<th>Contenido del Post</th>
 		<th>ACCIONES</th>
 	</tr>
 	<?php while($pos = $post->fetch_object()): ?>

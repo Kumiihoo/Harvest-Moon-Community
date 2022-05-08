@@ -17,6 +17,6 @@
     <label>Confirmación Contraseña</label>
     <input type="password" placeholder="Escribe de nuevo la Contraseña" >
     <input type="submit" value="Confirmar">
-    <a href="login.php">¿Ya tienes una cuenta?</a>
+    <a href="login.php">¿Ya tienes cuenta?</a>
 </form>
 </form>
