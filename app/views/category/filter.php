@@ -14,7 +14,6 @@
 					<?php endif; ?>
 					<h2><?= $post['title'] ?></h2>
 				</a>
-				<p><?= $post['content'] ?></p>
 				<a href="<?= base_url ?>posts/detail&id=<?= $post['id'] ?>" class="button">Leer Más</a>
 			</div>
 		<?php endwhile; ?>

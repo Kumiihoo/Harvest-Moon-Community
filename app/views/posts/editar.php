@@ -29,6 +29,6 @@
 
 		<input type="file" name="picture" />
 
-		<input type="submit" value="Guardar" />
+		<input type="submit" class="confirmacion" value="Guardar" />
 	</form>
 </div>

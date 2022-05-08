@@ -7,7 +7,7 @@ class postsController
     public function index()
     {
         $post = new Post();
-		$posts = $post->getIndex(1); //limite producto
+		$posts = $post->getIndex(4); //limite producto
 
         require_once 'views/posts/latest.php';
     }

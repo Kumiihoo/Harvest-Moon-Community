@@ -1,4 +1,4 @@
-<h1>Algunos de nuestros posts</h1>
+<h1>Posts Destacados</h1>
 
 <?php while ($post = $posts->fetch_array()) : ?>
 	<div class="posts">
@@ -8,11 +8,8 @@
 			<?php else : ?>
 				<img src="<?= base_url ?>../public/img/sustituto.png" />
 			<?php endif; ?>
-			<div class="marco">
 				<h2><?= $post['title'] ?></h2>
-			</div>
 		</a>
-		<p><?= $post['content'] ?></p>
 		<a href="<?= base_url ?>posts/detail&id=<?= $post['id'] ?>" class="button">Leer Más</a>
 	</div>
 <?php endwhile; ?>

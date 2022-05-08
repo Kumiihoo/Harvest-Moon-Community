@@ -9,7 +9,7 @@
 								<input type="email" name="email" />
 								<label for="password">Contraseña</label>
 								<input type="password" name="password" />
-								<input type="submit" value="Entrar" />
+								<input type="submit" class="confirmacion" value="Entrar" />
 							</form>
 						<?php else : ?>
 							<h3>Bienvenido de nuevo, <?= $_SESSION['identity']->username ?></h3>

@@ -6,5 +6,5 @@
 	<input type="text" name="category_name" 
 		value="<?= $pos['category_name']; ?>" required/>
 	
-	<input type="submit" value="Guardar" />
+	<input type="submit" class="confirmacion" value="Guardar" />
 </form>
