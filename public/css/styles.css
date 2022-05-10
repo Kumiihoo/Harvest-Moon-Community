@@ -1,186 +1,186 @@
 /*GENERALES*/
 
-*{
-    padding: 0px;
-    margin: 0px;
-    font-family: sans-serif, Helvetica, Arial;
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Libre Franklin", sans-serif;
 }
 
-body{
-    background: url(../img/bg.png);
+body {
+  background-image: url("/Harvest-Moon-Community/public/img/background.jpg");
+  background-size: cover;
 }
 
-a{
-    color: #01B1EA;
+a {
+  color: #ffaa49;
+  font-size: x-large;
 }
 
-a:visited{
-    color: #01B1EA;
+a:visited {
+  color: #ffaa49;
 }
 
-a:hover{
-    color: #555555;
+a:hover {
+  color: #555555;
 }
 
-.alert_green{
-    color:green;
+table {
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
 }
 
-.alert_red{
-    color:red;
+td {
+  border-top: 1px solid #ccc;
+  padding: 2px;
 }
 
-table{
-    text-align: center;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-}
-
-td{
-    border-top: 1px solid #ccc;
-    padding: 2px;
-}
-
-.thumb{
-    width: 100px;
+.thumb {
+  width: 100px;
 }
 
 /*CONTAINER*/
-#container{
-   width: 80%;
-   margin: 0px auto;
-   box-shadow: 0px 0px 10px gray;
-   background: white;
+#container {
+  width: 80%;
+  margin: 0px auto;
+  box-shadow: 0px 0px 10px gray;
+  background: rgba(255, 255, 255, 0.322);
 }
 
 /*HEADER*/
 
-#header{
-    height: 145px;
-    background: #F0F0F0;
+#header {
+  height: 145px;
+  background: rgba(255, 255, 255, 0.658);
 }
 
-#logo{
-    padding: 20px;
-    margin-left: 20px;
-    float:left;
+#logo {
+  padding: 20px;
+  margin-left: 20px;
+  float: left;
 }
 
-#logo img{
-    float:left;
-    height: 100px;
+#logo img {
+  float: left;
+  height: 100px;
 }
 
-#logo a{
-    float:left;
-    font-size: 40px;
-    letter-spacing: 4px;
-    font-family: 'Open Sans', Helvetica, Arial;
-    text-transform: uppercase;
-    color: #01B1EA;
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 18px;
-    margin-left: 25px;
-    text-shadow: 0px 2px 1px #222222;
-    transition: all 300ms;
+#logo a {
+  float: left;
+  font-size: 40px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #f1c036;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 18px;
+  margin-left: 25px;
+  text-shadow: 0px 2px 1px #222222;
+  transition: all 700ms;
 }
 
-#logo a:hover{
-    text-shadow: 0px 2px 1px #222222, 0px 0px 4px #01B1EA;
+#logo a:hover {
+  text-shadow: 0px 2px 1px #222222, 0px 0px 4px #ff9100;
 }
 
 /*MENU*/
-#menu{
-    clear:both;
-    background: #222;
-    color: white;
-    height: 55px;
-    border-bottom: 4px solid #01B1EA;
+#menu {
+  clear: both;
+  background: #413c3a;
+  color: white;
+  height: 55px;
+  border-bottom: 4px solid #f1c036;
 }
 
-#menu ul{
-    list-style: none;
-    text-decoration: none;
-    margin: 0px auto;
-    margin-left: 25px;
+#menu ul {
+  list-style: none;
+  text-decoration: none;
+  margin: 0px auto;
+  margin-left: 25px;
 }
 
-#menu ul li{
-    line-height: 55px;
-    float:left;
-    border-right: 1px solid #363636;
+#menu ul li {
+  line-height: 55px;
+  float: left;
+  border-right: 1px solid #363636;
 }
 
-#menu a{
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding-left: 12px;
-    padding-right: 12px;
-    transition: all 300ms;
+#menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: all 300ms;
 }
 
-#menu a:first-child{
-   border-left: 1px solid #363636; 
+#menu a:first-child {
+  border-left: 1px solid #363636;
 }
 
-#menu a:hover{
-    background: #01B1EA;
+#menu a:hover {
+  background-image: linear-gradient(
+    270deg,
+    #9d72d4 0,
+    #8f6bd3 50%,
+    #8065d2 100%
+  );
 }
 
 /*CONTENT*/
-#content{
-    margin: 0px auto;
-    overflow: hidden;
-    background: white;
+#content {
+  margin: 0px auto;
+  overflow: hidden;
+  background: white;
+  font-size: x-large;
 }
 
-/*BARRA LATERAL*/
-#lateral{
-    width: 22%;
-    min-height: 500px;
-    float: left;
-    margin-top:20px;
-    margin-left: 10px;
+/*ASIDE*/
+#lateral {
+  width: 22%;
+  min-height: 500px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
-#lateral .block_aside{
-    display: block;
-    width: 90%;
-    margin: 5px auto;
-    padding: 10px;
+#lateral .block_aside {
+  display: block;
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px;
 }
 
-#lateral h3{
-    display: block;
-    color: #222;
-    width: 100%;
-    text-align: center;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #E1E1E1;
-    border-bottom: 2px solid #01B1EA;
+#lateral h3 {
+  display: block;
+  color: #222;
+  width: 100%;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-bottom: 15px;
+  font-size: x-large;
+  font-weight: bold;
+  background: #e1e1e191;
+  border-bottom: 2px solid #f1c036;
+  border-radius: 5px;
 }
 
-#lateral ul{
-    margin-top: 20px;
-    margin-bottom: 20px;
+#lateral ul {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-#lateral ul li{
-    list-style: square;
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+#lateral ul li {
+  list-style: none;
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /*FORMS*/
-.form_container{
-    width: 50%;
+.form_container {
+  width: 50%;
 }
 
 label,
@@ -188,232 +188,185 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"],
-select, textarea{
-    display:block;
-    width: 95%;
-    margin-top: 2px;
-    margin-bottom: 2px;
+select,
+textarea {
+  display: block;
+  width: 95%;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"],
-select, textarea{
-    border: 1px solid #C9C9C9;
-    box-shadow: 0px 0px 2px #ccc inset;
-    background: white;
-    padding: 2px;
-    color: gray;
-    transition: all 300ms;
+select,
+textarea {
+  border: 1px solid #c9c9c9;
+  box-shadow: 0px 0px 2px #ccc inset;
+  background: white;
+  padding: 2px;
+  color: gray;
+  border-radius: 5px;
+  font-size: 100%;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
-input[type="email"]:focus{
-    border: 1px solid #1579b5;
-    color: black;
+input[type="email"]:focus {
+  color: black;
 }
 
 input[type="button"],
 input[type="submit"],
-button, .button{
-    display: block;
-    border-radius: 2px;
-    width: auto;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-    background: #2979CD;
-    border: 1px solid #11608E;
-    cursor:pointer;
+button,
+.button {
+  display: block;
+  width: auto;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  background: #413c3a;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.button{
-    background: #33AE3D;
-    color: white !important;
-    text-decoration: none;
+.button {
+  background: #413c3a;
+  color: white !important;
+  text-decoration: none;
 }
 
-.button-small{
-    width: 120px;
-    text-align: center;
-    margin-bottom: 20px;
+.button:hover {
+  background: #8065d2;
+  color: #f1c036 !important;
+  text-decoration: none;
 }
 
-.button-gestion{
-    margin-top: 5px;
-    margin-bottom: 5px;
+.button-small {
+  width: 120px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.button-red{
-    background: red;
-     border: 1px solid #cf1717;
+.button-gestion {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #567a00;
 }
 
-label, 
+.button-gestion:hover {
+  background: #4bb621;
+  color: white !important;
+}
+
+.button-red {
+  background: rgb(126, 13, 13);
+  border: 1px solid #cf1717;
+}
+
+.button-red:hover {
+  background: rgb(206, 45, 45);
+  color: white !important;
+}
+
+.confirmacion {
+  font-size: 100%;
+  text-align: center;
+}
+
+label,
 input[type="button"],
 input[type="submit"],
-button{
-    display:block;
-    margin-top: 10px;
+button {
+  display: block;
+  margin-top: 10px;
 }
 
 /*CENTRAL*/
-#central{
-    width: 72%;
-    min-height: 500px;
-    float: right;
-    border-left: 1px solid #ccc;
-    box-shadow: -5px -1px 5px #ddd;
-    padding:25px;
+#central {
+  width: 72%;
+  min-height: 500px;
+  float: right;
+  border-left: 1px solid #ccc;
+  box-shadow: -5px -1px 5px #ddd;
+  padding: 25px;
 }
 
-#central h1{
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 20px;
-    padding: 20px;
-    padding-top: 0px;
+#central h1 {
+  font-size: xxx-large;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-top: 0px;
 }
 
-/*PRODUCTOS*/
-.product{
-    width: 30%;
-    float:left;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 30px;
-    text-align: center;
+/*POSTS*/
+.posts {
+  width: 45%;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.product a{
-    color:black;
-    text-decoration: none;
+.posts a {
+  color: black;
+  text-decoration: none;
 }
 
-.product a:hover{
-    color:#555;
+.posts a:hover {
+  color: #555;
 }
 
-.product img{
-    height:170px;
-    margin-bottom: 10px;
+.posts img {
+  height: 200px;
+  margin-bottom: 10px;
 }
 
-.img_carrito{
-    height: 80px;
-    display: block;
-    margin:10px auto;
+.posts h2 {
+  font-size: xx-large;
+  margin-bottom: 10px;
 }
 
-.product h2{
-    font-size: 18px;
-    margin-bottom: 10px;
+.posts p {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
 }
-
-.product p{
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-#detail-product{
-    width: 100%;
-}
-
-#detail-product .image{
-    display: block;
-    width: 47%;
-    float:left;
-}
-
-#detail-product img{
-    display: block;
-    width: 100%;
-    float:left;
-}
-
-#detail-product .data{
-    width: 50%;
-    float:right;
-}
-
-#detail-product .description{
-    margin-bottom: 20px;
-}
-
-#detail-product .price{
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #444;
-}
-
-#detail-product .button{
-    width: 200px;
-    text-align: center;
-}
-
 
 /*FOOTER*/
-#footer{
-    clear: both;
-    text-align: center;
-    padding-top:10px;
-    padding-bottom: 10px;
-    color: white;
-    background: #222222;
-    border-top: 4px solid #01B1EA;
+#footer {
+  clear: both;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  background: #413c3a;
+  border-top: 4px solid #f1c036;
 }
 
-/*CARRITO*/
-.delete-carrito{
-   width: 295px;
-   float: left; 
+/* SCROLLBAR */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #9668ac #ffffff;
 }
 
-.button-delete{
-    display: block;
-    float: left;
-    width: 100px;
+*::-webkit-scrollbar {
+  width: 25px;
 }
 
-.button-carrito{
-    width: 70px;
-    margin: 0px auto;
-    text-align: center;
+*::-webkit-scrollbar-track {
+  background: #ffffff00;
 }
 
-.total-carrito{
-   width: 295px;
-   float: right; 
-}
-
-.total-carrito h3{
-    display: block;
-    float:left;
-    margin-top: 5px;
-}
-
-.button-pedido{
-    display: block;
-    float: right;
-    width: 100px;
-}
-
-.updown-unidades{
-    width: 80px;
-    margin: 0px auto;
-}
-
-.updown-unidades .button{
-    display: block;
-    width: 20px;
-    float: left;
-    padding:2px;
-    margin: 7px;
+*::-webkit-scrollbar-thumb {
+  background-color: #9668ac;
+  border-radius: 10px;
+  border: 3px outset #ffffff;
 }

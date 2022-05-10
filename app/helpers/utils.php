@@ -11,12 +11,16 @@ class Utils{
 		return $name;
 	}
 
-	public static function isAdmin(){
+	public static function isAdmin($gotoIndex = false){
 		if(!isset($_SESSION['admin'])){
-			header("Location:".base_url);
+			if ($gotoIndex) {
+				header("Location:".base_url);
+			}
 		}else{
 			return true;
 		}
+
+		return false;
 	}
 
 	public static function showCategories(){
@@ -24,6 +28,22 @@ class Utils{
 		$category = new Category();
 		$categories = $category->getAll();
 		return $categories;
+	}
+
+	public static function showCategory($id){
+		require_once 'models/category.php';
+		$category = new Category();
+		$category->setId($id);
+		$category = $category->getOne();
+		return $category;
+	}
+
+	public static function getUserId() {
+		if (isset($_SESSION['identity']) && $_SESSION['identity']->id) {
+			return $_SESSION['identity']->id;
+		}
+
+		return false;
 	}
 }
 

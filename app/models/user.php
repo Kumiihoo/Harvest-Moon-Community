@@ -72,33 +72,55 @@ class User
         $save = $this->db->query($sql);
 
         $result = false;
-		if($save){
-			$result = true;
-		}
-		return $result;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
     }
 
-    public function login(){
-		$result = false;
-		$email = $this->email;
-		$password = $this->password;
-		
-		// Comprobar si existe el usuario
-		$sql = "SELECT * FROM users WHERE email = '$email'";
-		$login = $this->db->query($sql);
-		
-		
-		if($login && $login->num_rows == 1){
-			$user = $login->fetch_object();
-			
-			// Verificar la contraseña
-			$verify = password_verify($password, $user->password);
-			
-			if($verify){
-				$result = $user;
-			}
-		}
-		
-		return $result;
-	}
+    public function login()
+    {
+        $result = false;
+        $email = $this->email;
+        $password = $this->password;
+
+        // Comprobar si existe el usuario
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $login = $this->db->query($sql);
+
+
+        if ($login && $login->num_rows == 1) {
+            $user = $login->fetch_object();
+
+            // Verificar la contraseña
+            $verify = password_verify($password, $user->password);
+
+            if ($verify) {
+                $result = $user;
+            }
+        }
+
+        return $result;
+    }
+
+    public function getUserById($uid)
+    {
+        $sql = "SELECT * FROM users WHERE id = {$uid}";
+        $result = $this->db->query($sql);
+        return $result->fetch_array();
+    }
+
+    public function update()
+    {
+        $sql = "UPDATE users SET username = '{$this->getUsername()}', email = '{$this->getEmail()}' WHERE id = {$this->getId()}";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    public function getAll()
+    {
+        $sql = "SELECT * FROM users";
+        $result = $this->db->query($sql);
+        return $result;
+    }
 }
