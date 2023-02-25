@@ -1,6 +1,6 @@
 # Harvest-Moon-Community
 
-Final Project in Certificate of Higher Education (HNC) Cross-platform Application Development (DAM)
+Final Project in Certificate of Higher Education (HNC) Web Application Development (DAW)
 
 # Technologies 
 
